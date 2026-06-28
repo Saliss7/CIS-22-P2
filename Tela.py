@@ -11,12 +11,12 @@ class App(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (TelaCadastro, TelaInicial, TelaSecundaria):
+        for F in (TelaCadastro, TelaInicial, TelaSecundaria, TelaErroDocumento):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
-        self.mostrar_tela(TelaCadastro)
+        self.mostrar_tela(TelaErroDocumento)
 
     def mostrar_tela(self, classe):
         self.frames[classe].tkraise()
@@ -235,6 +235,8 @@ class TelaCadastro(tk.Frame):
         self.botao_adicionar = tk.Button(frame_botao_adicionar, 
                                          text="Adicionar Usuário",
                                          command=self.adicionar_usuario)
+        
+  
         self.botao_adicionar.pack(pady = 10)
 
         frame_botao_ver_users= tk.Frame(self, width=600)
@@ -272,7 +274,7 @@ class TelaErroDocumento(tk.Frame):
                                          command=lambda: controller.mostrar_tela(TelaCadastro))
 
         
-        self.botao_erro.grid(row=1, column=0, columnspan=2, pady=10)
+        self.botao_erro.pack(pady = 10)
 
 
 
