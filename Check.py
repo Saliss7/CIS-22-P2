@@ -32,8 +32,8 @@ def AdressInformation(CEP):
         raise ValueError("CEP não encontrado")
 
     rua = values["logradouro"]
-    complemento = values["complemento"]
+    cidade = values["localidade"]
     bairro = values["bairro"]
     UF = values["uf"]
 
-    return (rua, complemento, bairro, UF)
+    return (rua, cidade, bairro, UF)
