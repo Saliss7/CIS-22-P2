@@ -2,13 +2,13 @@ import json
 from validate_docbr import CPF, CNPJ
 from urllib.request import Request, urlopen
 
-def CheckValidCPF(CPF):
+def CheckValidCPF(valueCPF):
     cpf = CPF()
-    return cpf.validate(CPF)
+    return cpf.validate(valueCPF)
 
-def CheckValidCNPJ(CNPJ):
+def CheckValidCNPJ(valueCNPJ):
     cnpj = CNPJ()
-    return cnpj.validate(CNPJ)
+    return cnpj.validate(valueCNPJ)
 
 def AdressInformation(CEP):
     cep = str(CEP).replace("-", "").replace(".", "").strip()
