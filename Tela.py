@@ -16,7 +16,7 @@ class App(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (TelaCadastro, TelaInicial, TelaSecundaria, TelaErroDocumento, TelaUsuarios, TelaSucesso, TelaErroCEP,
+        for F in (TelaCadastro, TelaErroDocumento, TelaUsuarios, TelaSucesso, TelaErroCEP,
                   TelaDeletado, TelaUpdate, TelaAtualizadoSucesso):
             frame = F(container, self)
             self.frames[F] = frame
@@ -26,26 +26,6 @@ class App(tk.Tk):
 
     def mostrar_tela(self, classe):
         self.frames[classe].tkraise()
-
-
-class TelaInicial(tk.Frame):
-    def __init__(self, parent, controller):
-        super().__init__(parent)
-        self.controller = controller
-        tk.Label(self, text="Tela Inicial").pack(pady=20)
-        tk.Button(self, text="Ir para Tela 2",
-                  command=self.trocar_tela_secundaria).pack()
-
-    def trocar_tela_secundaria(self):
-        self.controller.mostrar_tela(TelaSecundaria)
-
-
-class TelaSecundaria(tk.Frame):
-    def __init__(self, parent, controller):
-        super().__init__(parent)
-        tk.Label(self, text="Tela Secundária").pack(pady=20)
-        tk.Button(self, text="Voltar",
-                  command=lambda: controller.mostrar_tela(TelaInicial)).pack()
 
 
 class TelaUsuarios(tk.Frame):
